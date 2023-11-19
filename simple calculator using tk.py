@@ -50,18 +50,28 @@ def btn_div():
     operation = "divition"
 
 def equals():
-    s_num= scr.get()
+    s_num = scr.get()
     s_num = int(s_num)
-    scr.delete(0,END)
-    if operation== "addition":
-        result= f_num+s_num
-    if operation== "subtraction":
-        result= f_num-s_num
-    if operation== "multiplition":
-        result= f_num*s_num
-    if operation== "diviition":
-        result= f_num/s_num
+    scr.delete(0, END)
+
+    result = None  # Initialize the variable outside the try block
+
+    try:
+        if operation == "addition":
+            result = f_num + s_num
+        elif operation == "subtraction":
+            result = f_num - s_num
+        elif operation == "multiplication":
+            result = f_num * s_num
+        elif operation == "division":
+            result = f_num / s_num
+        else:
+            result = "Error"
+    except ZeroDivisionError:
+        result = "Error: Division by zero"
+
     scr.insert(0, result)
+
     
     
 
